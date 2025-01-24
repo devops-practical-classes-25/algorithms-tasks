@@ -1,7 +1,10 @@
 from stack.stack import Stack
 
-def is_brackets_balanced(expression: str) -> str:
-    "Проверяет правильность расстановки скобок в арифметическом выражении."
+def is_brackets_balanced(expression: str) -> bool:
+    """
+    Проверяет правильность расстановки скобок в арифметическом выражении.
+    Возвращает True, если скобки расставлены правильно, иначе False.
+    """
     staples = {'(': ')', '[': ']', '{': '}'}
     stack = Stack()
 
@@ -10,14 +13,15 @@ def is_brackets_balanced(expression: str) -> str:
             stack.push(char)
         elif char in staples.values():
             if stack.is_empty() or staples[stack.pop()] != char:
-                return "No"
+                return False
 
-    return "Yes" if stack.is_empty() else "No"
+    return stack.is_empty()
 
 def main():
     expression = "3 + 2 * (5 - [4 / {2 + 1}])"
     print(f"Проверка правильности скобок в выражении: {expression}")
-    print("Результат:", is_brackets_balanced(expression))
+    result = "Yes" if is_brackets_balanced(expression) else "No"
+    print("Результат:", result)
 
 if __name__ == "__main__":
     main()
