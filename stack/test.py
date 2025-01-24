@@ -1,6 +1,6 @@
 import unittest
 
-from main import Stack
+from stack import Stack
 
 class TestStack(unittest.TestCase):
     """Тесты для проверки работы стека"""
