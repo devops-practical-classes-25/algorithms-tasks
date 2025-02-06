@@ -10,19 +10,7 @@ def rabbits(target_month: int, rabbit_lifetime: int) -> int:
     :param rabbit_lifetime: продолжительность жизни каждого кролика, не менее 2 месяцев.
     :return: количество пар кроликов
     """
-    if target_month <= 2:
-        return 1
-
-    rabbits_age = Deque(rabbit_lifetime)
-    rabbits_age.head.value = 1
-    rabbits_age.head.next.value = 1
-
-    for _ in range(2, target_month):
-        last_removed = rabbits_age.pop()
-        new_rabbits = rabbits_age.get(0) + rabbits_age.get(1) - last_removed
-        rabbits_age.appendleft(new_rabbits)
-
-    return rabbits_age.get(0)
+    pass
 
 
 def main():
