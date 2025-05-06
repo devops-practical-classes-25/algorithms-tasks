@@ -11,7 +11,16 @@ def heap_sort(items: list[T]) -> list[T]:
     :param items: Список элементов для сортировки.
     :return: Список отсортированных элементов.
     """
-    pass
+    heap = Heap(heap_type=HeapType.MIN)
+
+    for item in items:
+        heap.push(item)
+    
+    sorted_items = []
+    while len(heap) > 0:
+        sorted_items.append(heap.pop())
+    
+    return sorted_items
 
 
 def main():
